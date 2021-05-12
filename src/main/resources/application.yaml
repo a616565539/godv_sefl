@@ -5,3 +5,13 @@ server:
 dao:
   test:
     name: godv
+
+    # mybatisplus代码生成器配置
+    generator:
+      username: qingtian
+      password: passw0rdHZ
+      driver: com.mysql.jdbc.Driver
+      url: jdbc:mysql://rm-bp1662491739tnpow.mysql.rds.aliyuncs.com:3306/qingtianbak?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull
+      dbTableList: #数据库的表，可多张(自己设置)
+        - qt_user_identification
+      prefix:
