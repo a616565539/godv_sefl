@@ -1,12 +1,12 @@
-package com.godv.lgd.concurrent;
+package com.godv.lgd.streamtest;
 
+import com.alibaba.nacos.api.utils.StringUtils;
 import com.godv.lgd.dao.Good;
 import com.godv.lgd.dao.Person;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -145,5 +145,37 @@ public class StreamDemo {
         Condition producer = reentrantLock.newCondition();
         Condition consumer = reentrantLock.newCondition();
         producer.await();
+    }
+
+
+    @Test
+    public void test002(){
+        String[] strs = new String[5];
+        strs[0] = "a";
+        strs[1] = "a";
+        strs[2] = "a";
+        strs[3] = "d";
+        strs[4] = "e";
+        List<String> members = Arrays.asList(strs);
+        int totolNumber = (int) members.stream()
+                .filter(compareLevelName ->{
+                    System.out.println(compareLevelName);
+                    return StringUtils.equals("a", compareLevelName);
+                } ).count();
+        System.out.println(totolNumber);
+    }
+
+    @Test
+    public void test003(){
+        AtomicReference<Integer> total = new AtomicReference<>(0);
+        List<Integer> integers = Arrays.asList(1, 1, 1, 1, 1, 1, 1, 1, 1);
+        integers.parallelStream().forEach(
+                e->{
+                    total.updateAndGet(v -> v + e);
+                }
+        );
+        System.out.println(total);
+        int i = Runtime.getRuntime().availableProcessors();
+        System.out.println(i);
     }
 }
