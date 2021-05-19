@@ -169,6 +169,7 @@ public class StreamDemo {
     public void test003(){
         AtomicReference<Integer> total = new AtomicReference<>(0);
         List<Integer> integers = Arrays.asList(1, 1, 1, 1, 1, 1, 1, 1, 1);
+        System.out.println(integers.stream().count());
         integers.parallelStream().forEach(
                 e->{
                     total.updateAndGet(v -> v + e);
@@ -178,4 +179,5 @@ public class StreamDemo {
         int i = Runtime.getRuntime().availableProcessors();
         System.out.println(i);
     }
+
 }

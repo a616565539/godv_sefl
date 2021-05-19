@@ -12,9 +12,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Good {
+
     private Double price;
     private Boolean islist;
-
     private String name;
 
     public Good(Double price, String name) {
