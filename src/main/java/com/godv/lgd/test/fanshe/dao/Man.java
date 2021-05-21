@@ -1,4 +1,4 @@
-package com.godv.lgd.test.fanshe;
+package com.godv.lgd.test.fanshe.dao;
 
 /**
  * @program: lgd
@@ -7,7 +7,7 @@ package com.godv.lgd.test.fanshe;
  * @create: 2021-05-20 09:21
  **/
 
-public class Man implements People{
+public class Man implements People {
     @Override
     public void sayHello() {
         System.out.println("hello,我是男人");

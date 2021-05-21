@@ -1,5 +1,7 @@
 package com.godv.lgd.dao;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 /**
@@ -11,9 +13,12 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ApiModel(value="user对象",description="用户对象user")
 public class Good {
-
+    @ApiModelProperty(value="价格",name="price")
     private Double price;
+
+
     private Boolean islist;
     private String name;
 

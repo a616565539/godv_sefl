@@ -17,25 +17,24 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author: GodV
  * @create: 2021-05-19 14:08
  **/
-
 @Configuration
 @EnableSwagger2
-@Profile({"dev","test"})//配置只允许在测试的时候暴露所有的接口
+@Profile({"dev"})//配置只允许在测试的时候暴露所有的接口
 public class Swagger2Config {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.fenmeng.settle.api.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.godv.lgd.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("云结算系统Restful-API")
-                .description("云结算系统Restful-API")
+                .title("GodV - Restful-API")
+                .description("GodV - Restful-API")
                 .version("1.0")
                 .build();
     }

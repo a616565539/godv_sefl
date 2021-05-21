@@ -1,5 +1,7 @@
-package com.godv.lgd.test.fanshe;
+package com.godv.lgd.test.fanshe.proxy;
 
+import com.godv.lgd.test.fanshe.dao.Man;
+import com.godv.lgd.test.fanshe.dao.People;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
@@ -16,7 +18,7 @@ import java.util.Arrays;
 public class FanSheTest {
 
     public static void main(String[] args) throws ClassNotFoundException {
-        Class<?> aClass = Class.forName("com.godv.lgd.test.fanshe.Man");
+        Class<?> aClass = Class.forName("com.godv.lgd.test.fanshe.dao.Man");
         Method[] methods = aClass.getMethods();
         Arrays.stream(methods).forEach(e->{
             System.out.println(e.getName());

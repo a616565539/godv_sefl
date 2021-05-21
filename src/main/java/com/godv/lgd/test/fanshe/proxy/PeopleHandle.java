@@ -1,4 +1,6 @@
-package com.godv.lgd.test.fanshe;
+package com.godv.lgd.test.fanshe.proxy;
+
+import com.godv.lgd.test.fanshe.dao.People;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -6,6 +8,10 @@ import java.lang.reflect.Method;
 /**
  * @program: lgd
  * @description: people代理类
+ * proxy代理 目标类必须是实现接口
+ * 通过jdk在api的运行期间,动态生成代理对象
+ *
+ * 装饰者模式获得原targe
  * @author: GodV
  * @create: 2021-05-20 11:08
  **/

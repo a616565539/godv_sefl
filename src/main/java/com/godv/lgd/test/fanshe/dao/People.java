@@ -1,4 +1,4 @@
-package com.godv.lgd.test.fanshe;
+package com.godv.lgd.test.fanshe.dao;
 
 public interface People {
 

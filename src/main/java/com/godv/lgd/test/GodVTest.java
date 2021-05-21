@@ -3,6 +3,7 @@ package com.godv.lgd.test;
 import com.godv.lgd.dao.Person;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -31,7 +32,9 @@ public class GodVTest {
 
     @Test
     public void test1(){
-        System.out.println(1>>1);
+
+        String s = new BigDecimal("2.22222").divide(new BigDecimal(2)).toString();
+        System.out.println(s);
     }
 
     @Test
@@ -47,4 +50,6 @@ public class GodVTest {
         System.out.println(objects);
 
     }
+
+
 }
