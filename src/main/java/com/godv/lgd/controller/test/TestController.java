@@ -6,12 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -29,7 +27,7 @@ public class TestController {
     private final GodvThreadPool godvThreadPool;
 
     @GetMapping("/paraller")
-    public void paraller(){
+    public void paraller() {
         List<Integer> integers = Arrays.asList(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
         List<CompletableFuture<Integer>> collect = integers.stream().map(e ->
                 CompletableFuture.supplyAsync(() -> getInt(), godvThreadPool.getThreadPoolExecutor())).collect(Collectors.toList());
@@ -44,4 +42,26 @@ public class TestController {
         return 5;
     }
 
+    @GetMapping("gcTest")
+    public void gcTest() throws IOException {
+        new Thread(()->{
+            cas();
+        }).start();
+        new Thread(()->{
+            cas();
+        }).start();
+//        new Thread(()->{
+//            cas();
+//        }).start();
+//        new Thread(()->{
+//            cas();
+//        }).start();
+        System.in.read();
+    }
+
+    public void cas(){
+        while (true) {
+            Byte[] bytes = new Byte[1024 * 1024];
+        }
+    }
 }

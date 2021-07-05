@@ -60,4 +60,12 @@ public class TBTest01 {
         BeanUtils.copyProperties(levelMappingVO,good);
         System.out.println(good);
     }
+
+
+    @Test
+    public  void testgc(){
+        while (true) {
+            Byte[] bytes = new Byte[1024 * 1024];
+        }
+    }
 }

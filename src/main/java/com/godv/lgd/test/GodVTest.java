@@ -51,5 +51,10 @@ public class GodVTest {
 
     }
 
+    @Test
+    public void security11() {
+        String dayAgo = "自然会月".replace("天", "");
+        System.out.println(dayAgo);
+    }
 
 }
