@@ -1,6 +1,6 @@
 server:
   #端口
-  port: 8083
+  port: 8080
   tomcat:
     uri-encoding: UTF-8
     #最大链接

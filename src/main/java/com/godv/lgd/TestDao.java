@@ -22,6 +22,8 @@ public class TestDao {
         System.out.println(2^2);
     }
 
+    public TestDao() {
+    }
 }
 
 

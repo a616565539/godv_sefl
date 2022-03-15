@@ -1,7 +1,11 @@
 package com.godv.lgd.concurrent;
 
 import com.godv.lgd.Person;
+import com.godv.lgd.TestDao;
 import org.junit.Test;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class VolatileTest {
 
@@ -91,4 +95,19 @@ public class VolatileTest {
         }
     }
 
+    @Test
+    public void optionalTest(){
+        TestDao testDao = new TestDao();
+        ArrayList<Object> objects = new ArrayList<>();
+        objects =null;
+        boolean present = Optional.ofNullable(objects).isPresent();
+        System.out.println(present);
+    }
+
+    @Test
+    public void parallelTest(){
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
+        List<String> collect = integers.parallelStream().map(Objects::toString).collect(Collectors.toList());
+        System.out.println(collect);
+    }
 }
