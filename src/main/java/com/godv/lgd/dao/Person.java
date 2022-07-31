@@ -1,11 +1,14 @@
 package com.godv.lgd.dao;
 
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-
-public class Person {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Person implements Comparable{
 
     private String name;
 
@@ -27,19 +30,16 @@ public class Person {
         this.score = score;
     }
 
-    public Person(String name, double score) {
-        this.name = name;
-        this.score = score;
-    }
-
-    public Person() {
-    }
-
     @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", score=" + score +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

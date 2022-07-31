@@ -8,14 +8,17 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Stream;
 
 
 @RestController
 @RequestMapping("/godv")
-public class GodVController {
+public class GodVController{
 
     @Value("${dao.test.name}")
     private String sName;
@@ -47,7 +50,10 @@ public class GodVController {
     @GetMapping("/hqTest")
     @ResponseBody
     @ApiOperation(value = "测试文档展示")
+    @GodV
     public List<HqPoint> hqTest() {
+
+
         HqPoint hqPoint1 = new HqPoint();
         HqPoint hqPoint2 = new HqPoint();
         hqPoint1.setX(111);
@@ -58,5 +64,19 @@ public class GodVController {
 
         return Arrays.asList(hqPoint1,hqPoint2);
     }
+
+
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class<?> godVController = Class.forName("com.godv.lgd.controller.GodVController");
+        Method[] methods = godVController.getMethods();
+        Arrays.stream(methods).forEach(e->{
+            System.out.println(e.toString());
+            Annotation[] annotations = e.getDeclaredAnnotations();
+            Arrays.stream(annotations).forEach(a->{
+                if(a instanceof GodV) System.out.println("666666666");
+            });
+        });
+    }
+
 }
 

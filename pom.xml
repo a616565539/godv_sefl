@@ -8,10 +8,18 @@
         <version>2.3.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.godv</groupId>
     <artifactId>lgd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>lgd</name>
+
+    <modules>
+        <module>TDD_demo</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
     <description>firstBlood</description>
 
     <properties>

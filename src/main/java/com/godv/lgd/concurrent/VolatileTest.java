@@ -97,11 +97,11 @@ public class VolatileTest {
 
     @Test
     public void optionalTest(){
-        TestDao testDao = new TestDao();
-        ArrayList<Object> objects = new ArrayList<>();
-        objects =null;
-        boolean present = Optional.ofNullable(objects).isPresent();
-        System.out.println(present);
+//        TestDao testDao = new TestDao();
+//        ArrayList<Object> objects = new ArrayList<>();
+//        objects =null;
+//        boolean present = Optional.ofNullable(objects).isPresent();
+//        System.out.println(present);
     }
 
     @Test
