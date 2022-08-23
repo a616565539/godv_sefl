@@ -6,6 +6,7 @@ import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +37,8 @@ public class CitiDataMock implements MockMethod<CitiData>{
         return mockCitiDataList;
     }
 
-    @SneakyThrows
     @Override
-    public List<CitiData> mockDataByJsonFile() {
+    public List<CitiData> mockDataByJsonFile() throws IOException {
         String filePath="/Users/godv/Documents/selfXM/lgd/TDD_demo/src/main/resources/mock/CitiDataJson";
         String jsonString = FileUtils.readFileToString(new File(filePath));
         return JSONObject.parseArray(jsonString, CitiData.class);

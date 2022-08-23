@@ -2,10 +2,10 @@ package com.godv.lgd.demo.mock;
 
 import com.alibaba.fastjson.JSONObject;
 import com.godv.lgd.demo.external.model.HSBCData;
-import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,9 +35,8 @@ public class HSBCDataMock implements MockMethod<HSBCData>{
         return mockHSBCDataList;
     }
 
-    @SneakyThrows
     @Override
-    public List<HSBCData> mockDataByJsonFile() {
+    public List<HSBCData> mockDataByJsonFile() throws IOException {
         String filePath="/Users/godv/Documents/selfXM/lgd/TDD_demo/src/main/resources/mock/HSBCDataJson";
         String jsonString = FileUtils.readFileToString(new File(filePath));
         return JSONObject.parseArray(jsonString, HSBCData.class);
