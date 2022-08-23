@@ -1,7 +1,7 @@
-package com.godv.demo.mapper;
+package com.godv.lgd.demo.mapper;
 
 
-import com.godv.demo.model.CitiData;
+import com.godv.lgd.demo.model.CitiData;
 
 import java.util.List;
 
@@ -11,7 +11,6 @@ import java.util.List;
  * @author: GodV
  * @create: 2022-07-26 18:44
  **/
-
 public interface CitiMapper {
 
     List<CitiData> doQuery();

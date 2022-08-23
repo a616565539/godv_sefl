@@ -1,7 +1,9 @@
-package com.godv.demo.model;
+package com.godv.lgd.demo.external.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
@@ -9,14 +11,14 @@ import java.math.BigDecimal;
  * @program: lgd
  * @description:
  * @author: GodV
- * @create: 2022-07-26 18:43
+ * @create: 2022-07-26 18:39
  **/
 
 @Data
 @Builder
-public class CitiData {
-
-    Long productId;
+@NoArgsConstructor
+@AllArgsConstructor
+public class HSBCData {
 
     String productName;
 

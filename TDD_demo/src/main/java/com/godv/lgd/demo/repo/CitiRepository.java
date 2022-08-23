@@ -1,9 +1,10 @@
-package com.godv.demo.repo;
+package com.godv.lgd.demo.repo;
 
 
-import com.godv.demo.mapper.CitiMapper;
-import com.godv.demo.model.CitiData;
+import com.godv.lgd.demo.mapper.CitiMapper;
+import com.godv.lgd.demo.model.CitiData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -13,13 +14,13 @@ import java.util.List;
  * @author: GodV
  * @create: 2022-07-26 18:47
  **/
-
+@Component
 public class CitiRepository {
 
     @Autowired
-    CitiMapper citiMapperImpl;
+    CitiMapper citiMapper;
 
     public List<CitiData> queryByCondition(){
-        return citiMapperImpl.doQuery();
+        return citiMapper.doQuery();
     }
 }

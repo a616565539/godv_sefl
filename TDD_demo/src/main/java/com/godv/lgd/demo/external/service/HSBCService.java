@@ -1,7 +1,7 @@
-package com.godv.demo.external.service;
+package com.godv.lgd.demo.external.service;
 
 
-import com.godv.demo.external.model.HSBCData;
+import com.godv.lgd.demo.external.model.HSBCData;
 
 import java.util.List;
 
