@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiConsumer;
 
@@ -42,5 +43,13 @@ public class SynchronizedTest {
             System.out.println(s2);
         });
         System.out.println(objectObjectHashMap);
+    }
+
+    @Test
+    public void countLathTest() throws InterruptedException {
+        CountDownLatch countDownLatch = new CountDownLatch(0);
+        countDownLatch.await();
+        countDownLatch.countDown();
+        System.out.println("6666");
     }
 }

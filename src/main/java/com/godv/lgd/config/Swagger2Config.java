@@ -17,8 +17,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author: GodV
  * @create: 2021-05-19 14:08
  **/
-@Configuration
-@EnableSwagger2
 @Profile({"dev"})//配置只允许在测试的时候暴露所有的接口
 public class Swagger2Config {
     @Bean

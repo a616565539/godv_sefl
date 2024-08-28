@@ -5,6 +5,7 @@ import com.godv.lgd.dao.huaqi.HqPoint;
 import com.godv.lgd.utils.ATestUtil;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,16 +17,11 @@ import java.util.List;
 import java.util.stream.Stream;
 
 
-@RestController
-@RequestMapping("/godv")
 public class GodVController{
 
-    @Value("${dao.test.name}")
-    private String sName;
 
     @GetMapping("/test01")
     public void test01(){
-        System.out.println(sName);
     }
 
     @GetMapping("/testBean")
@@ -42,7 +38,6 @@ public class GodVController{
         Good good1 = new Good();
         Good good2 = new Good();
 
-        System.out.println(sName);
         return Arrays.asList(good1,good2);
     }
 
@@ -65,6 +60,10 @@ public class GodVController{
         return Arrays.asList(hqPoint1,hqPoint2);
     }
 
+    @GetMapping("/utTest")
+    public void utTest() {
+
+    }
 
     public static void main(String[] args) throws ClassNotFoundException {
         Class<?> godVController = Class.forName("com.godv.lgd.controller.GodVController");
@@ -77,6 +76,7 @@ public class GodVController{
             });
         });
     }
+
 
 }
 

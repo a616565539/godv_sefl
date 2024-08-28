@@ -17,6 +17,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
@@ -42,7 +44,7 @@ public class CalculationServiceTest {
     private CitiDataMock citiDataMock = new CitiDataMock();
     private HSBCDataMock hsbcDataMock = new HSBCDataMock();
     @Before
-    public void mockData() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+    public void mockData() throws IllegalAccessException, InstantiationException, ClassNotFoundException, IOException {
         //mock CitiDataList
         mockCitiDataByConstructor = citiDataMock.getMockData(MockTypeEnum.CONSTRUCTOR);
         mockCitiDataByJson = citiDataMock.getMockData(MockTypeEnum.JSONFILE);
@@ -52,6 +54,8 @@ public class CalculationServiceTest {
         mockHSBCDataByJson = hsbcDataMock.getMockData(MockTypeEnum.JSONFILE);
     }
 
+
+
     @Test
     public void summaryDataNormal() {
         when(citiRepository.queryByCondition()).thenReturn(mockCitiDataByConstructor);
@@ -59,6 +63,7 @@ public class CalculationServiceTest {
         calculationService.summaryData();
     }
 
+    //随机   暴力获取
     @Test
     public void summaryDataException1() {
         when(citiRepository.queryByCondition()).thenReturn(mockCitiDataByConstructor);
@@ -80,8 +85,10 @@ public class CalculationServiceTest {
         calculationService.summaryData();
     }
 
+    private final String s="|";
     @Test
     public void test() {
-        System.out.println(this.getClass().getName());
+
+        System.out.println(new BigDecimal(1.00).doubleValue()/new BigDecimal(3.00).doubleValue());
     }
 }

@@ -8,7 +8,7 @@ public class day01 {
 
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("application.yaml");
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("application.yml");
         Object person = classPathXmlApplicationContext.getBean("person");
         System.out.println(person);
     }

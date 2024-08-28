@@ -68,7 +68,6 @@ public class CalculationService {
             System.out.println("捕获异常3,执行异常处理逻辑");
         }
 
-
         //自己的业务处理逻辑
         AtomicReference<BigDecimal> citiSum = new AtomicReference<>(new BigDecimal(0));
         CitiDataList.stream().forEach(citiData -> {

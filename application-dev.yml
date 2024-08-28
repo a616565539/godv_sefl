@@ -1,0 +1,37 @@
+server:
+  #端口
+  port: 8888
+  tomcat:
+    uri-encoding: UTF-8
+    #最大链接
+    max-threads: 1000
+    #最大并发数
+    max-connections: 20000
+  max-http-header-size: 10000000
+
+
+spring:
+  main:
+    allow-circular-references: true
+
+
+
+#数据库配置
+datasource:
+  driver-class-name: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/godv?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull
+  username: root
+  password: dyw5211314
+  type: com.zaxxer.hikari.HikariDataSource
+  hikari:
+    minimum-idle: 5
+    maximum-pool-size: 100
+    auto-commit: true
+    idle-timeout: 30000
+    pool-name: DatebookHikariCP
+    max-lifetime: 1800000
+    connection-timeout: 30000
+    connection-test-query: SELECT 1
+
+dao:
+    test: godv
